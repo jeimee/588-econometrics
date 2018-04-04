@@ -117,8 +117,8 @@ dataset = [[2.771244718,1.784783929,0],
 	[7.444542326,0.476683375,1],
 	[10.12493903,3.234550982,1],
 	[6.642287351,3.319983761,1]]
-split = get_split(dataset)
-print('Split: [X%d < %.3f]' % ((split['index']+1), split['value']))
+split_data = get_split(dataset)
+print('Split: [X%d < %.3f]' % ((split_data['index']+1), split_data['value']))
 
 tree = build_tree(dataset, 1, 1)
 print_tree(tree)
@@ -139,7 +139,7 @@ from csv import reader
  
 # Load a CSV file
 def load_csv(filename):
-	file = open(filename, "rb")
+	file = open(filename, "r")
 	lines = reader(file)
 	dataset = list(lines)
 	return dataset
@@ -292,6 +292,8 @@ def decision_tree(train, test, max_depth, min_size):
 # Test CART on Bank Note dataset
 seed(1)
 # load and prepare data
+import os
+os.chdir('C:\\Users\\iriley\\Documents\\588-econometrics')
 filename = 'data_banknote_authentication.csv'
 dataset = load_csv(filename)
 # convert string attributes to integers
