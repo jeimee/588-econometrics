@@ -232,9 +232,7 @@ os.chdir('C:\\Users\\iriley\\Documents\\588-econometrics')
 filename = 'train.csv'
 dataset = load_csv(filename)
 df=dataset[1:]
-# convert string attributes to integers
-#for i in range(len(dataset[0])):
-#	str_column_to_float(dataset, i)
+
 # evaluate algorithm
 n_folds = 5
 max_depth = 5
